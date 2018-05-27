@@ -11773,7 +11773,7 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">HTML</span>
@@ -11781,25 +11781,6 @@ div#notebook {
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<style> code {background-color : pink !important;} </style>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -11814,7 +11795,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -11874,7 +11855,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
@@ -11918,13 +11899,13 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[5]:</div>
+<div class="prompt output_prompt">Out[2]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.text.Text at 0x151d2092b70&gt;</pre>
+<pre>&lt;matplotlib.text.Text at 0x202dc4c8ba8&gt;</pre>
 </div>
 
 </div>
@@ -18647,7 +18628,7 @@ pzj8fwDiM58gUqKCAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># perspective transform</span>
@@ -18656,6 +18637,9 @@ pzj8fwDiM58gUqKCAAAAAElFTkSuQmCC
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="k">as</span> <span class="nn">mpimg</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">switch_backend</span><span class="p">(</span><span class="s1">&#39;Qt5Agg&#39;</span><span class="p">)</span>
+<span class="o">%</span><span class="k">matplotlib</span> qt
+<span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="c1"># Read in the saved camera matrix and distortion coefficients</span>
 <span class="c1"># These are the arrays you calculated using cv2.calibrateCamera()</span>
@@ -18679,12 +18663,12 @@ pzj8fwDiM58gUqKCAAAAAElFTkSuQmCC
     <span class="c1"># 2) Convert to grayscale</span>
     <span class="n">undistort_gray</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">undistort</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span>
     <span class="c1"># 3) Find the chessboard corners</span>
-    <span class="n">ret</span><span class="p">,</span> <span class="n">corners</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">findChessboardCorners</span><span class="p">(</span><span class="n">undistort_gray</span><span class="p">,</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">ret</span><span class="p">,</span> <span class="n">corners</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">findChessboardCorners</span><span class="p">(</span><span class="n">undistort_gray</span><span class="p">,</span> <span class="p">(</span><span class="n">nx</span><span class="p">,</span><span class="n">ny</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
     <span class="c1">#print(&quot;{}&quot;.format(corners))</span>
     <span class="c1"># 4) If corners found: </span>
     <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
             <span class="c1"># a) draw corners</span>
-            <span class="n">cv2</span><span class="o">.</span><span class="n">drawChessboardCorners</span><span class="p">(</span><span class="n">undistort</span><span class="p">,</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="n">corners</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span>
+            <span class="n">cv2</span><span class="o">.</span><span class="n">drawChessboardCorners</span><span class="p">(</span><span class="n">undistort</span><span class="p">,</span> <span class="p">(</span><span class="n">nx</span><span class="p">,</span><span class="n">ny</span><span class="p">),</span> <span class="n">corners</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span>
             <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">&#39;undistort&#39;</span><span class="p">,</span> <span class="n">undistort</span><span class="p">)</span> 
             <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
             <span class="c1"># b) define 4 source points src = np.float32([[,],[,],[,],[,]])</span>
@@ -18693,7 +18677,7 @@ pzj8fwDiM58gUqKCAAAAAElFTkSuQmCC
                  <span class="c1">#One especially smart way to do this would be to use four well-chosen</span>
                  <span class="c1"># corners that were automatically detected during the undistortion steps</span>
                  <span class="c1">#We recommend using the automatic detection of corners in your code</span>
-            <span class="n">src</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">([</span><span class="n">corners</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">corners</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">corners</span><span class="p">[</span><span class="o">-</span><span class="mi">8</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">corners</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()])</span>
+            <span class="n">src</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">([</span><span class="n">corners</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">corners</span><span class="p">[</span><span class="n">nx</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">corners</span><span class="p">[</span><span class="o">-</span><span class="n">nx</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">corners</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()])</span>
             <span class="c1">#print(&quot;{}&quot;.format(src))</span>
             <span class="c1"># c) define 4 destination points dst = np.float32([[,],[,],[,],[,]])</span>
             <span class="n">dst</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">([[</span><span class="n">img_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mf">10.</span><span class="p">,</span> <span class="n">img_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mf">10.</span><span class="p">],[</span><span class="n">img_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">9</span><span class="o">/</span><span class="mf">10.</span><span class="p">,</span><span class="n">img_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mf">10.</span><span class="p">],[</span><span class="n">img_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mf">10.</span><span class="p">,</span><span class="n">img_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">9</span><span class="o">/</span><span class="mf">10.</span><span class="p">],[</span> <span class="n">img_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">9</span><span class="o">/</span><span class="mf">10.</span><span class="p">,</span> <span class="n">img_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">9</span><span class="o">/</span><span class="mf">10.</span><span class="p">]])</span>
@@ -25911,7 +25895,42 @@ SZIkqVNOWEmSJEmSJEmSJKlTTlhJkiRJkiRJkiSpU/8C9nwF87AcywMAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Solution</span>
+<span class="c1"># Define a function that takes an image, number of x and y points, </span>
+<span class="c1"># camera matrix and distortion coefficients</span>
+<span class="k">def</span> <span class="nf">corners_unwarp</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">mtx</span><span class="p">,</span> <span class="n">dist</span><span class="p">):</span>
+    <span class="c1"># Use the OpenCV undistort() function to remove distortion</span>
+    <span class="n">undist</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">undistort</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">mtx</span><span class="p">,</span> <span class="n">dist</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">mtx</span><span class="p">)</span>
+    <span class="c1"># Convert undistorted image to grayscale</span>
+    <span class="n">gray</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">undist</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span>
+    <span class="c1"># Search for corners in the grayscaled image</span>
+    <span class="n">ret</span><span class="p">,</span> <span class="n">corners</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">findChessboardCorners</span><span class="p">(</span><span class="n">gray</span><span class="p">,</span> <span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="c1"># If we found corners, draw them! (just for fun)</span>
+        <span class="n">cv2</span><span class="o">.</span><span class="n">drawChessboardCorners</span><span class="p">(</span><span class="n">undist</span><span class="p">,</span> <span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">),</span> <span class="n">corners</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span>
+        <span class="c1"># Choose offset from image corners to plot detected corners</span>
+        <span class="c1"># This should be chosen to present the result at the proper aspect ratio</span>
+        <span class="c1"># My choice of 100 pixels is not exact, but close enough for our purpose here</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># offset for dst points</span>
+        <span class="c1"># Grab the image shape</span>
+        <span class="n">img_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">gray</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">gray</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="c1"># For source points I&#39;m grabbing the outer four detected corners</span>
+        <span class="n">src</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">([</span><span class="n">corners</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">corners</span><span class="p">[</span><span class="n">nx</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">corners</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">corners</span><span class="p">[</span><span class="o">-</span><span class="n">nx</span><span class="p">]])</span>
+        <span class="c1"># For destination points, I&#39;m arbitrarily choosing some points to be</span>
+        <span class="c1"># a nice fit for displaying our warped result </span>
+        <span class="c1"># again, not exact, but close enough for our purposes</span>
+        <span class="n">dst</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">([[</span><span class="n">offset</span><span class="p">,</span> <span class="n">offset</span><span class="p">],</span> <span class="p">[</span><span class="n">img_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">offset</span><span class="p">,</span> <span class="n">offset</span><span class="p">],</span> 
+                                     <span class="p">[</span><span class="n">img_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">offset</span><span class="p">,</span> <span class="n">img_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">offset</span><span class="p">],</span> 
+                                     <span class="p">[</span><span class="n">offset</span><span class="p">,</span> <span class="n">img_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">offset</span><span class="p">]])</span>
+        <span class="c1"># Given src and dst points, calculate the perspective transform matrix</span>
+        <span class="n">M</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">getPerspectiveTransform</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">)</span>
+        <span class="c1"># Warp the image using OpenCV warpPerspective()</span>
+        <span class="n">warped</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">warpPerspective</span><span class="p">(</span><span class="n">undist</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">img_size</span><span class="p">)</span>
+
+    <span class="c1"># Return the resulting image and matrix</span>
+    <span class="k">return</span> <span class="n">warped</span><span class="p">,</span> <span class="n">M</span>
 </pre></div>
 
 </div>
